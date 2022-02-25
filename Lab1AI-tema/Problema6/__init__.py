@@ -32,13 +32,16 @@ def elementMajoritar(sir):
         return el
     else:
         #daca nu, returnam un nr random si afisam un mesaj
-        print("Nu exista un element majoritar")
-        return -10
-
+        raise ValueError("Nu exista un element majoritar")
+        
 def testPb6():
     assert elementMajoritar([2,8,7,2,2,5,2,3,1,2,2]) == 2
-    assert elementMajoritar([2,8,7,7,7,5,2,3,1,7,2]) == -10
+    assert elementMajoritar([2,8,7,7,7,5,7,7,1,7,2]) == 7
     assert elementMajoritar([2,3,7,2,3,3,3,3,1,3,2]) == 3
     assert elementMajoritar([2,0,0,0,0,0,5,2,3,0,2,2]) == 0
+    try:
+        elementMajoritar([2,8,7,7,7,5,2,3,1,7,2])
+    except ValueError:
+        print("Nu exista un element majoritar")
     
 testPb6()
